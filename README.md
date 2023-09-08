@@ -1,0 +1,3 @@
+this is just idea from my family member, i was thinking about it and i want do a lot of stuff now so i do this locally only, not in real internet, so i will write into input some name from my close family and script random select another member of my family whom he/she make Christmas present this year, and so on, that name what was picked will bedeleted from list of them and i write another and......
+
+very simple and fast for me💡
