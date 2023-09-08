@@ -9,19 +9,16 @@ const buttonOnInput = document.getElementById("buttonOnInput");
 const listOfName = ["adam", "anna", "jana", "zuzka", "matus", "mama", "tato"];
 
 const getRandomName = () => {
-    inputName = document.querySelector("#inputName").value;
-    let randomNumber = Math.floor(Math.random() * 7);
-    let nameBaseOnIndex = listOfName[randomNumber];
-    // nameBaseOnIndex === undefined ? getRandomName : nameBaseOnIndex;
-    // nameBaseOnIndex === inputName ? getRandomName() : nameBaseOnIndex;
-    if ()
-    
-    check(nameBaseOnIndex);
-    check(nameBaseOnIndex.length);
-    check(typeof(nameBaseOnIndex));
-    check(inputName);
-    check(inputName.length);
-    check(typeof(inputName));
+    let inputName = document.querySelector("#inputName").value;
+    let nameBaseOnIndex;
+    let randomNumber;
+
+    do {
+        randomNumber = Math.floor(Math.random() * 7);
+        nameBaseOnIndex = listOfName[randomNumber];
+    } while (nameBaseOnIndex === undefined || nameBaseOnIndex === inputName);
+    // check(nameBaseOnIndex);
+    // check(inputName);
 
     const reduceArray = () => {
         listOfName.splice(randomNumber, 1);
@@ -39,6 +36,6 @@ const showRandomName = () => {
 
 buttonOnInput.addEventListener("click", () => {
     showRandomName();
-    check(listOfName);
+    // check(listOfName);
 });
 
