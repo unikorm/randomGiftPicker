@@ -13,9 +13,15 @@ const getRandomName = () => {
     let randomNumber = Math.floor(Math.random() * 7);
     let nameBaseOnIndex = listOfName[randomNumber];
     nameBaseOnIndex === inputName ? getRandomName() : nameBaseOnIndex;
+    return nameBaseOnIndex;
+};
+
+const showRandomName = () => {
+    let name = document.createTextNode(getRandomName());
+    selectedName.appendChild(name);
 };
 
 buttonOnInput.addEventListener("click", () => {
-    getRandomName();
+    showRandomName();
 });
 
