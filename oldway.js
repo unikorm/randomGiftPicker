@@ -15,12 +15,16 @@ const getRandomName = () => {
     let nameBaseOnIndex;
     let randomNumber;
 
-    do {
+    if (listOfNames.length === 0) {
+        check("The List is empty by now, get the fuck out of here brother...");
+    } else {
+        do {
         randomNumber = Math.floor(Math.random() * 7);
         nameBaseOnIndex = listOfNames[randomNumber];
-    } while (nameBaseOnIndex === undefined || nameBaseOnIndex === inputName);
+        } while (nameBaseOnIndex === undefined || nameBaseOnIndex === inputNameValue);
+    }; 
     check(nameBaseOnIndex);
-    check(inputNameValue.length);
+    check(inputNameValue);
 
     const reduceArray = () => {
         listOfNames.splice(randomNumber, 1);
@@ -46,10 +50,5 @@ buttonOnInput.addEventListener("click", () => {
         check(listOfNames);
         showRandomName();
     }
-    // if (inputName.value.length === 0) {
-    //     console.log("ajaj");
-    // } else {
-    //     showRandomName();
-    // };
 });
 
