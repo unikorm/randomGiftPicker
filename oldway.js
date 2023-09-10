@@ -7,7 +7,7 @@ check(inputName);
 let selectedName = document.getElementById("selectedName");
 
 const buttonOnInput = document.getElementById("buttonOnInput");
-const listOfName = ["adam", "anna", "jana", "zuzka", "matus", "mama", "tato"];
+const listOfNames = ["adam", "anna", "jana", "zuzka", "matus", "mama", "tato"];
 
 const getRandomName = () => {
     let inputNameValue = document.querySelector("#inputName").value;
@@ -17,16 +17,17 @@ const getRandomName = () => {
 
     do {
         randomNumber = Math.floor(Math.random() * 7);
-        nameBaseOnIndex = listOfName[randomNumber];
+        nameBaseOnIndex = listOfNames[randomNumber];
     } while (nameBaseOnIndex === undefined || nameBaseOnIndex === inputName);
-    // check(nameBaseOnIndex);
+    check(nameBaseOnIndex);
     check(inputNameValue.length);
 
     const reduceArray = () => {
-        listOfName.splice(randomNumber, 1);
+        listOfNames.splice(randomNumber, 1);
     };
 
     reduceArray();
+    check(listOfNames);
     return nameBaseOnIndex;
 };
 
@@ -37,12 +38,18 @@ const showRandomName = () => {
 };
 
 buttonOnInput.addEventListener("click", () => {
+    let inputNameValue = document.querySelector("#inputName").value;
+    check(inputNameValue.length);
+    if (inputNameValue.length === 0) {
+        check("notin");
+    } else {
+        check(listOfNames);
+        showRandomName();
+    }
     // if (inputName.value.length === 0) {
     //     console.log("ajaj");
     // } else {
     //     showRandomName();
     // };
-    // check(listOfName);
-    showRandomName();
 });
 
