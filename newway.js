@@ -1,6 +1,16 @@
 "use strict";
 
-let checkNew = console.log;
+import { listOfNames  } from "./oldway.js";
 
-const listOfNameOne = ["adam", "anna", "jana", "zuzka", "matus", "mama", "tato"];
-const listOfNameTwo = ["adam", "anna", "jana", "zuzka", "matus", "mama", "tato"];
+let checkAgain = console.log;
+
+const bttnRandom = document.getElementById("bttnCreateRandomConnect");
+const ulToShowIt = document.getElementById("resultOfRandominator");
+const listOfNamesOne = [...listOfNames];  // spread operator
+const listOfNamesTwo = Array.from(listOfNames);  // Array.from method
+// checkAgain(listOfNamesOne, listOfNamesTwo, bttnRandom, ulToShowIt);
+
+
+bttnRandom.addEventListener("click", () => {
+    checkAgain(listOfNamesOne, listOfNamesTwo);
+});
