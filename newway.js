@@ -14,9 +14,9 @@ const randomizeArray = (array) => {    // randomize array's order (long version)
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        const temporaly = newArray[i];
+        const temporary = newArray[i];
         newArray[i] = newArray[j];
-        newArray[j] = temporaly;
+        newArray[j] = temporary;
     };
     return newArray;
 };
@@ -24,10 +24,15 @@ const randomArrayOne = randomizeArray(listOfNamesOne);   // results of this func
 const randomArrayTwo = randomizeArray(listOfNamesTwo);
 // checkAgain(randomArrayOne, randomArrayTwo);
 
-
+const connections =[];
 
 bttnRandom.addEventListener("click", () => {
     const randomizeFirst = listOfNamesOne.sort(() => Math.random() - .5);   // randomize array's order (short version)
     const randomizeSecond = listOfNamesTwo.sort(() => Math.random() - .5);  // and all in one line (function + result)
-    checkAgain(randomizeFirst, randomizeSecond);
+    // checkAgain(randomizeFirst, randomizeSecond);
+    const orderArr = [1, 2, 3, 4, 5, 6, 7]
+    const connectedArrays = orderArr.map((value, index) => {
+        return randomizeFirst[index] + " má " + randomizeSecond[index];
+    });
+    checkAgain(connectedArrays);
 });
