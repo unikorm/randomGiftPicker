@@ -29,10 +29,10 @@ const connections =[];
 bttnRandom.addEventListener("click", () => {
     const randomizeFirst = listOfNamesOne.sort(() => Math.random() - .5);   // randomize array's order (short version)
     const randomizeSecond = listOfNamesTwo.sort(() => Math.random() - .5);  // and all in one line (function + result)
-    // checkAgain(randomizeFirst, randomizeSecond);
-    const orderArr = [1, 2, 3, 4, 5, 6, 7]
-    const connectedArrays = orderArr.map((value, index) => {
-        return randomizeFirst[index] + " má " + randomizeSecond[index];
-    });
-    checkAgain(connectedArrays);
+    // checkAgain(randomizeFirst, randomizeSecond);    // function to connect two rondomized arrays with each other, but problem is that it is without validation
+    // const orderArr = [0, 1, 2, 3, 4, 5, 6]
+    // const connectedArrays = orderArr.map((index) => {
+    //     return randomizeFirst[index] + " má " + randomizeSecond[index];
+    // });
+    // checkAgain(connectedArrays);
 });
