@@ -27,23 +27,16 @@ const randomArrayTwo = randomizeArray(listOfNamesTwo);
 const makeConnections = () => {
     const connections =[];
 
-    const randomizeFirst = listOfNamesOne.sort(() => Math.random() - .5);   // randomize array's order (short version)
-    const randomizeSecond = listOfNamesTwo.sort(() => Math.random() - .5);  // and all in one line (function + result)
-    checkAgain(randomizeFirst, randomizeSecond);
+    let randomizeSecond = listOfNamesTwo.sort(() => Math.random() - .5);  // randomize array's order (short version) and all in one line (function + result)
+    checkAgain(randomizeSecond);
 
-    for (let i = 0; i < randomizeFirst.length + 1; i++) {
-        const value1 = randomizeFirst[i];
+    for (let i = 0; i < listOfNamesOne.length; i++) {
+        const value1 = listOfNamesOne[i];
+        const value2 = randomizeSecond[i];
 
-        for (let j = 0; j < randomizeSecond.length + 1; j++) {
-            const value2 = randomizeSecond[j];
-
-            if (value1 !== value2 && !connections[value1] && !connections[value2]) {
-                connections[value1] = value2;
-                connections[value2] = value1;
-                break;
-            };
-        };
+        connections.push({index: i, value: value1 + " má " + value2});   
     };
+
     return connections;
 };
 
