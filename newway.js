@@ -24,15 +24,37 @@ const randomArrayOne = randomizeArray(listOfNamesOne);   // results of this func
 const randomArrayTwo = randomizeArray(listOfNamesTwo);
 // checkAgain(randomArrayOne, randomArrayTwo);
 
-const connections =[];
+const makeConnections = () => {
+    const connections =[];
 
-bttnRandom.addEventListener("click", () => {
     const randomizeFirst = listOfNamesOne.sort(() => Math.random() - .5);   // randomize array's order (short version)
     const randomizeSecond = listOfNamesTwo.sort(() => Math.random() - .5);  // and all in one line (function + result)
+    checkAgain(randomizeFirst, randomizeSecond);
+
+    for (let i = 0; i < randomizeFirst.length + 1; i++) {
+        const value1 = randomizeFirst[i];
+
+        for (let j = 0; j < randomizeSecond.length + 1; j++) {
+            const value2 = randomizeSecond[j];
+
+            if (value1 !== value2 && !connections[value1] && !connections[value2]) {
+                connections[value1] = value2;
+                connections[value2] = value1;
+                break;
+            };
+        };
+    };
+    return connections;
+};
+
+
+bttnRandom.addEventListener("click", () => {
     // checkAgain(randomizeFirst, randomizeSecond);    // function to connect two rondomized arrays with each other, but problem is that it is without validation
     // const orderArr = [0, 1, 2, 3, 4, 5, 6]
     // const connectedArrays = orderArr.map((index) => {
     //     return randomizeFirst[index] + " má " + randomizeSecond[index];
     // });
     // checkAgain(connectedArrays);
+    const connections = makeConnections();
+    checkAgain(connections);
 });
