@@ -25,16 +25,28 @@ const randomArrayTwo = randomizeArray(listOfNamesTwo);
 // checkAgain(randomArrayOne, randomArrayTwo);
 
 const makeConnections = () => {
-    const connections =[];
+    let connections =[];
 
-    let randomizeSecond = listOfNamesTwo.sort(() => Math.random() - .5);  // randomize array's order (short version) and all in one line (function + result)
-    checkAgain(randomizeSecond);
+    let randomizeSecond;
+    let isUnique = false;
 
-    for (let i = 0; i < listOfNamesOne.length; i++) {
-        const value1 = listOfNamesOne[i];
-        const value2 = randomizeSecond[i];
+    while (!isUnique) {
+        randomizeSecond = listOfNamesTwo.sort(() => Math.random() - .5);  // randomize array's order (short version) and all in one line (function + result)
+        checkAgain(randomizeSecond);
+        isUnique = true;  // let's say it's unique 
 
-        connections.push({index: i, value: value1 + " má " + value2});   
+        for (let i = 0; i < listOfNamesOne.length; i++) {
+            const value1 = listOfNamesOne[i];
+            const value2 = randomizeSecond[i];
+
+            if (value1 === value2) {
+                isUnique = false;  // let's say is NOT unique
+                connections = [];
+                break;   // exit loop 
+            };
+    
+            connections.push({index: i, value: value1 + " má " + value2});   
+        };
     };
 
     return connections;
