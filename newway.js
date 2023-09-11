@@ -45,10 +45,10 @@ const makeConnections = () => {
                 break;   // exit loop 
             };
     
-            connections.push({index: i, value: value1 + " má " + value2});   
+            connections.push(value1 + " má " + value2);   
         };
     };
-
+    
     return connections;
 };
 
