@@ -8,7 +8,7 @@ const bttnRandom = document.getElementById("bttnCreateRandomConnect");
 const ulToShowIt = document.getElementById("resultOfRandominator");
 const listOfNamesOne = [...listOfNames];  // spread operator
 const listOfNamesTwo = Array.from(listOfNames);  // Array.from method
-// checkAgain(listOfNamesOne, listOfNamesTwo);
+// checkAgain(ulToShowIt);
 
 const randomizeArray = (array) => {    // randomize array's order (long version)
     const newArray = [...array];
@@ -61,5 +61,18 @@ bttnRandom.addEventListener("click", () => {
     // });
     // checkAgain(connectedArrays);
     const connections = makeConnections();
-    checkAgain(connections);
+
+    connections.forEach(connection => {    // forEach() loop variant
+        let li = document.createElement("li");
+        li.innerText = connection;
+        ulToShowIt.appendChild(li);
+    });
+
+    for (let i = 0; i < connections.length; i++) {   // for loop variant
+        let li = document.createElement("li");
+        li.innerText = connections[i];
+        ulToShowIt.appendChild(li);
+    };
+
+    // checkAgain(connections);
 });
