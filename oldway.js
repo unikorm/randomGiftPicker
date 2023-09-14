@@ -19,18 +19,18 @@ const getRandomName = () => {
         selectedName.textContent = "out of names...";
 
     } else {
-        // do {
-            // randomNumber = Math.floor(Math.random() * 7);
-            // nameBaseOnIndex = listOfNames[randomNumber];
-            // } while (nameBaseOnIndex === undefined || nameBaseOnIndex === inputNameValue);
-        if (nameBaseOnIndex === undefined || nameBaseOnIndex === inputNameValue) {     // okey, i am on good way, but this doesn't work well
+        let correctValue = false
+        while (!correctValue) {
             randomNumber = Math.floor(Math.random() * 7);
             nameBaseOnIndex = listOfNames[randomNumber];
-        } else {
-            getRandomName();
+
+            if (inputNameValue !== nameBaseOnIndex && nameBaseOnIndex !== undefined || listOfNames.length < 2) {
+                correctValue = true;
+            };
         };
+        correctValue = false;
     }; 
-    // check(nameBaseOnIndex);
+    check(nameBaseOnIndex);
     // check(inputNameValue);
 
     const reduceArray = () => {
@@ -55,7 +55,7 @@ buttonOnInput.addEventListener("click", () => {
         // check("notin's here");
         inputName.placeholder = "write name here wtf";
     } else {
-        // check(listOfNames);
+        check(listOfNames);
         showRandomName();
     };
 });
